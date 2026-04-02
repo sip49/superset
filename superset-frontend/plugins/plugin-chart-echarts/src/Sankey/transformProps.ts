@@ -41,7 +41,19 @@ export default function transformProps(
   const refs: Refs = {};
   const { formData, height, hooks, queriesData, width, theme } = chartProps;
   const { onLegendStateChanged } = hooks;
-  const { colorScheme, metric, source, target, sliceId } = formData;
+  const {
+    colorScheme,
+    draggable = true,
+    metric,
+    nodeAlign = 'justify',
+    nodeGap = 8,
+    nodeWidth = 20,
+    linkOpacity = 0.2,
+    orient = 'horizontal',
+    source,
+    target,
+    sliceId,
+  } = formData;
   const { data } = queriesData[0];
   const colorFn = CategoricalColorNamespace.getScale(colorScheme);
   const metricLabel = getMetricLabel(metric);
@@ -120,10 +132,16 @@ export default function transformProps(
     series: {
       animation: false,
       data: seriesData,
+      draggable,
       lineStyle: {
         color: 'source',
+        opacity: linkOpacity,
       },
       links,
+      nodeAlign,
+      nodeGap,
+      nodeWidth,
+      orient,
       type: 'sankey',
     },
     tooltip: {
