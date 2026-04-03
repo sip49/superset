@@ -23,9 +23,19 @@ import {
 } from '@superset-ui/core';
 import { BaseChartProps, BaseTransformedProps } from '../types';
 
+export type SankeyNodeAlign = 'justify' | 'left' | 'right';
+
+export type SankeyOrient = 'horizontal' | 'vertical';
+
 export type SankeyFormData = QueryFormData & {
   colorScheme: string;
+  draggable: boolean;
   metric: QueryFormMetric;
+  nodeAlign: SankeyNodeAlign;
+  nodeGap: number;
+  nodeWidth: number;
+  linkOpacity: number;
+  orient: SankeyOrient;
   source: QueryFormColumn;
   target: QueryFormColumn;
 };
