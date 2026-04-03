@@ -92,9 +92,9 @@ describe('Sankey transformProps', () => {
       theme: supersetTheme,
     });
     const { echartOptions } = transformProps(chartProps as SankeyChartProps);
-    expect(
-      (echartOptions.series as Record<string, unknown>).nodeAlign,
-    ).toEqual('left');
+    expect((echartOptions.series as Record<string, unknown>).nodeAlign).toEqual(
+      'left',
+    );
   });
 
   test('should pass orient to echarts series', () => {
@@ -106,9 +106,9 @@ describe('Sankey transformProps', () => {
       theme: supersetTheme,
     });
     const { echartOptions } = transformProps(chartProps as SankeyChartProps);
-    expect(
-      (echartOptions.series as Record<string, unknown>).orient,
-    ).toEqual('vertical');
+    expect((echartOptions.series as Record<string, unknown>).orient).toEqual(
+      'vertical',
+    );
   });
 
   test('should pass nodeWidth and nodeGap to echarts series', () => {
@@ -136,8 +136,10 @@ describe('Sankey transformProps', () => {
     const { echartOptions } = transformProps(chartProps as SankeyChartProps);
     expect(
       (
-        (echartOptions.series as Record<string, unknown>)
-          .lineStyle as Record<string, unknown>
+        (echartOptions.series as Record<string, unknown>).lineStyle as Record<
+          string,
+          unknown
+        >
       ).opacity,
     ).toEqual(0.5);
   });
@@ -151,8 +153,8 @@ describe('Sankey transformProps', () => {
       theme: supersetTheme,
     });
     const { echartOptions } = transformProps(chartProps as SankeyChartProps);
-    expect(
-      (echartOptions.series as Record<string, unknown>).draggable,
-    ).toEqual(false);
+    expect((echartOptions.series as Record<string, unknown>).draggable).toEqual(
+      false,
+    );
   });
 });

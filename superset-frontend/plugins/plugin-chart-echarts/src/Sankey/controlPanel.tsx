@@ -76,9 +76,7 @@ const config: ControlPanelConfig = {
             config: {
               type: 'SelectControl',
               label: t('Orientation'),
-              description: t(
-                'Layout direction of the Sankey chart.',
-              ),
+              description: t('Layout direction of the Sankey chart.'),
               default: 'horizontal',
               renderTrigger: true,
               choices: [
